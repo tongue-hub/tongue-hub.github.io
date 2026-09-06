@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="seo-title">Yassine Ghali — Legal & Institutional Translation & Interpreting</title>
+    <meta name="description" content="Official legal, technical, and institutional translation and court interpreting between Arabic, Spanish, French, and English.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Noto Kufi Arabic', 'Inter', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        darkBg: '#0B0F17',
+                        cardDark: '#141A26',
+                        cardDarkHover: '#1B2436',
+                        borderDark: '#232D42',
+                        goldAccent: '#D6A93B',
+                        emeraldAccent: '#22B08D',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter, Plus Jakarta Sans, Caveat, Noto Kufi Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #D6A93B;
+            --accent-soft: rgba(214, 169, 59, 0.15);
+            --accent-glow: rgba(214, 169, 59, 0.35);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        body[dir="rtl"] {
+            font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
+        }
+
+        .accent-text { color: var(--accent); }
+        .accent-bg { background-color: var(--accent); }
+        .accent-border { border-color: var(--accent); }
+
+        /* 1. Letter Mosaic Animation */
+        .mosaic-letter {
+            display: inline-block;
+            transition: color 0.15s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            user-select: none;
+        }
+        .mosaic-letter:hover {
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        /* 2. Infinite Horizontal Marquee Carousels */
+        .marquee-wrap {
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 2.5rem;
+            animation: marquee 26s linear infinite;
+        }
+
+        .marquee-wrap:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        body[dir="rtl"] .marquee-track {
+            animation: marqueeRtl 26s linear infinite;
+        }
+
+        @keyframes marqueeRtl {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* 3. Color Swatches & Palette Cards */
+        .theme-swatch {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .theme-swatch:hover {
+            transform: translateY(-3px) scale(1.08);
+        }
+        .theme-swatch.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .palette-card {
+            display: flex;
+            width: 200px;
+            height: 120px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .palette-card:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+        }
+        .color-stripe {
+            flex: 1;
+            height: 100%;
+            transition: flex 0.3s ease;
+        }
+        .color-stripe:hover {
+            flex: 1.8;
+        }
+
+        /* 4. Bento & Card Dynamics */
+        .bento-card {
+            transition: background-color 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-radius: 24px;
+        }
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .rate-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .rate-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Simplified Accessible View — additive overrides only, does not alter default layout/colors */
+        html.simple-mode body {
+            font-size: 112%;
+            line-height: 1.7;
+        }
+        html.simple-mode .mosaic-letter {
+            transition: none !important;
+            cursor: text;
+        }
+        html.simple-mode .mosaic-letter:hover {
+            transform: none;
+            color: inherit !important;
+        }
+        html.simple-mode .marquee-track {
+            animation: none !important;
+            flex-wrap: wrap;
+            white-space: normal;
+        }
+        html.simple-mode .marquee-wrap {
+            white-space: normal;
+            -webkit-mask-image: none;
+            mask-image: none;
+        }
+        html.simple-mode .bento-card,
+        html.simple-mode .rate-card,
+        html.simple-mode .theme-swatch,
+        html.simple-mode .palette-card {
+            transition: none !important;
+            transform: none !important;
+        }
+        html.simple-mode .bento-card:hover,
+        html.simple-mode .rate-card:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        html.simple-mode *:focus {
+            outline: 3px solid #2563EB !important;
+            outline-offset: 2px !important;
+        }
+        html.simple-mode .font-handwriting {
+            font-family: 'Inter', sans-serif !important;
+            transform: none !important;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-darkBg dark:text-slate-100 antialiased flex flex-col min-h-screen" id="pageBody">
+
+    <!-- STICKY HEADER NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-darkBg/90 backdrop-blur-xl border-b border-slate-200 dark:border-borderDark transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl p-0.5 flex items-center justify-center shadow-lg transition-transform group-hover:scale-105" style="background: linear-gradient(135deg, var(--accent), #22B08D);">
+                    <div class="w-full h-full bg-slate-900 dark:bg-darkBg rounded-[9px] flex items-center justify-center accent-text">
+                        <i data-lucide="globe-2" class="w-5 h-5"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Tongue<span class="accent-text">Hub</span></span>
+                    <span class="text-[10px] tracking-widest uppercase font-bold -mt-1 text-emerald-600 dark:text-emeraldAccent" data-i18n="brandSub">Global Voices</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-slate-700 dark:text-slate-300 text-sm">
+                <a href="#services" data-i18n="navServices" class="hover:text-blue-600 dark:hover:text-amber-400 transition-colors">Services</a>
+                <a href="#rates" data-i18n="navRates" class="hover:text-blue-600 dark:hover:text-amber-400 transition-colors">Rates & Calculator</a>
+                <a href="#contact" data-i18n="navContact" class="hover:text-blue-600 dark:hover:text-amber-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Control Actions: Theme, Language Switcher & Quote CTA -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Mode Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleDarkMode()" aria-label="Toggle mode" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardDark border border-slate-200 dark:border-borderDark text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-cardDarkHover transition-all">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+
+                <!-- Accessible / Simplified View Toggle -->
+                <button id="a11yToggleBtn" onclick="toggleSimpleMode()" aria-pressed="false" aria-label="Toggle simplified accessible view" title="Simplified accessible view" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardDark border border-slate-200 dark:border-borderDark text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-cardDarkHover transition-all">
+                    <i data-lucide="accessibility" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Language Switcher Dropdown -->
+                <div class="relative">
+                    <select id="langSwitcher" onchange="setLang(this.value)" aria-label="Language Selector" class="bg-slate-100 dark:bg-cardDark border border-slate-200 dark:border-borderDark text-slate-700 dark:text-slate-200 rounded-xl px-3 py-2.5 text-xs font-bold focus:outline-none focus:border-2 cursor-pointer appearance-none pr-7" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%223%22><path d=%22M6 9l6 6 6-6%22/></svg>'); background-repeat:no-repeat; background-position: right 8px center;">
+                        <option value="en">EN — English</option>
+                        <option value="es">ES — Español</option>
+                        <option value="fr">FR — Français</option>
+                        <option value="ar">AR — العربية</option>
+                    </select>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" data-i18n="navQuote" class="hidden sm:inline-block px-5 py-2.5 text-slate-950 font-bold text-xs rounded-xl shadow-lg transition-all transform hover:scale-105" style="background: linear-gradient(90deg, var(--accent), #c98f2a);">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+
+        <!-- HERO SECTION -->
+        <section class="relative overflow-hidden border-b border-slate-200 dark:border-borderDark py-16 lg:py-20" id="heroSection">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy + Interactive Mosaic Headline -->
+                <div class="lg:col-span-7 space-y-8 relative">
+                    
+                    <!-- Top Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-bold text-emerald-600 dark:text-emeraldAccent bg-emerald-500/10 border-emerald-500/20">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span data-i18n="heroBadge">8+ years of certified legal & judicial interpreting experience</span>
+                    </div>
+
+                    <!-- Handwritten Callout -->
+                    <div class="absolute -top-10 right-6 hidden sm:flex items-center gap-2 transform rotate-[-5deg] pointer-events-none">
+                        <span class="font-handwriting text-3xl text-amber-500 font-bold" data-i18n="heroAnnotation">100% human accuracy</span>
+                        <svg class="w-7 h-7 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 14 Q 12 4, 20 10 M16 6 L20 10 L17 14"/>
+                        </svg>
+                    </div>
+
+                    <!-- Main Interactive Mosaic Headline -->
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.06]" id="mosaicTitle">
+                        Precision translation for documents that can't afford to be misread.
+                    </h1>
+
+                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl font-medium leading-relaxed" data-i18n="heroDesc">
+                        Legal, technical and institutional translation and interpreting between Arabic, Spanish, French and English — grounded in a legal degree and eight years as an official court and police interpreter.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#contact" data-i18n="heroCta1" class="px-8 py-4 text-slate-950 font-bold rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5" style="background: linear-gradient(90deg, var(--accent), #c98f2a);">
+                            Discuss a Project
+                        </a>
+                        <a href="#rates" data-i18n="heroCta2" class="px-8 py-4 bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark text-slate-800 dark:text-white font-bold rounded-2xl shadow-sm hover:bg-slate-50 dark:hover:bg-cardDarkHover transition-all">
+                            View Pricing Rates
+                        </a>
+                    </div>
+
+                    <!-- Quick Trust Metrics -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200 dark:border-borderDark/80">
+                        <div>
+                            <span class="text-3xl font-black text-slate-900 dark:text-white block">8+</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold" data-i18n="trust1">Years Court Experience</span>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-black text-slate-900 dark:text-white block">4</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold" data-i18n="trust2">Working Languages</span>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-black text-slate-900 dark:text-white block">100%</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold" data-i18n="trust3">Human Precision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Swatch Color Palettes & Interactive Blocks -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Theme Swatches Picker -->
+                    <div class="bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark p-6 rounded-3xl shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs uppercase tracking-widest font-extrabold text-slate-400" data-i18n="themeLabel">Accent Theme Picker</span>
+                            <span class="text-[11px] font-bold accent-text" data-i18n="themeSub">Select visual accent</span>
+                        </div>
+                        <div class="flex gap-3 pt-1">
+                            <div class="theme-swatch active" data-accent="#D6A93B" style="background:#D6A93B;" title="Gold" onclick="setAccent('#D6A93B', this)"></div>
+                            <div class="theme-swatch" data-accent="#22B08D" style="background:#22B08D;" title="Emerald" onclick="setAccent('#22B08D', this)"></div>
+                            <div class="theme-swatch" data-accent="#3B82F6" style="background:#3B82F6;" title="Blue" onclick="setAccent('#3B82F6', this)"></div>
+                            <div class="theme-swatch" data-accent="#8B5CF6" style="background:#8B5CF6;" title="Purple" onclick="setAccent('#8B5CF6', this)"></div>
+                        </div>
+                    </div>
+
+                    <!-- Swatch Carousel Cards -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs uppercase tracking-widest font-extrabold text-slate-400" data-i18n="paletteHeader">Language Color Palettes</span>
+                            <span class="text-xs font-semibold accent-text" data-i18n="paletteSub">Click stripe to shift background</span>
+                        </div>
+
+                        <div class="palette-carousel-container overflow-hidden rounded-2xl p-2 bg-slate-200/50 dark:bg-cardDark/50 border border-slate-200/80 dark:border-borderDark">
+                            <div class="marquee-track">
+                                <div class="palette-card">
+                                    <div class="color-stripe" style="background-color: #D6A93B;" data-color="#FEFCE8" data-dark="#0B0F17"></div>
+                                    <div class="color-stripe" style="background-color: #22B08D;" data-color="#ECFDF5" data-dark="#064E3B"></div>
+                                    <div class="color-stripe" style="background-color: #1E293B;" data-color="#F1F5F9" data-dark="#0F172A"></div>
+                                    <div class="color-stripe" style="background-color: #3B82F6;" data-color="#EFF6FF" data-dark="#1E3A8A"></div>
+                                </div>
+                                <div class="palette-card">
+                                    <div class="color-stripe" style="background-color: #10B981;" data-color="#DCFCE7" data-dark="#065F46"></div>
+                                    <div class="color-stripe" style="background-color: #F59E0B;" data-color="#FEF3C7" data-dark="#78350F"></div>
+                                    <div class="color-stripe" style="background-color: #6366F1;" data-color="#EEF2FF" data-dark="#312E81"></div>
+                                    <div class="color-stripe" style="background-color: #EC4899;" data-color="#FCE7F3" data-dark="#831843"></div>
+                                </div>
+                                <div class="palette-card">
+                                    <div class="color-stripe" style="background-color: #0284C7;" data-color="#E0F2FE" data-dark="#0C4A6E"></div>
+                                    <div class="color-stripe" style="background-color: #D6A93B;" data-color="#FEFCE8" data-dark="#0B0F17"></div>
+                                    <div class="color-stripe" style="background-color: #14B8A6;" data-color="#CCFBF1" data-dark="#134E4A"></div>
+                                    <div class="color-stripe" style="background-color: #37B7C3;" data-color="#E0F7FA" data-dark="#083C42"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RELEVANT DOMAIN MARQUEE CAROUSEL -->
+        <section class="border-y border-slate-200/80 dark:border-borderDark py-5 bg-white dark:bg-cardDark/50 transition-colors">
+            <div class="max-w-7xl mx-auto px-6 mb-2">
+                <p class="text-[11px] uppercase tracking-widest font-extrabold text-slate-400 text-center" data-i18n="marqueeTitle">
+                    Specialized Expertise & Institutional Scope
+                </p>
+            </div>
+            
+            <div class="marquee-wrap">
+                <div class="marquee-track font-black text-sm uppercase tracking-wider text-slate-400 dark:text-slate-400 items-center" id="marqueeTrack">
+                    <!-- JavaScript dynamic rendering -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES BENTO GRID -->
+        <section id="services" class="max-w-7xl mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest accent-text" data-i18n="servEyebrow">Professional Solutions</span>
+                    <h2 class="text-4xl font-black text-slate-900 dark:text-white mt-1" data-i18n="servTitle">Services</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 font-medium" data-i18n="servSub">Per document, per project, or ongoing monthly institutional support.</p>
+                </div>
+                
+                <div class="flex items-center gap-2 font-handwriting text-2xl text-amber-500 font-bold">
+                    <span data-i18n="handwriting">…and always human-checked</span>
+                    <svg class="w-6 h-6 text-amber-500 transform rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bento Layout Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Legal -->
+                <div class="bento-card bg-blue-50/80 hover:bg-blue-100 dark:bg-cardDark dark:hover:bg-cardDarkHover border border-blue-200/60 dark:border-borderDark p-8 flex flex-col justify-between h-[270px] cursor-pointer group" data-hover-bg="#DBEAFE" data-hover-dark="#1E3A8A">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center mb-4 text-white shadow-md">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-blue-950 dark:group-hover:text-blue-100 transition-colors" data-i18n="s1_h">
+                            Legal & Contractual Translation
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 font-medium leading-relaxed" data-i18n="s1_p">
+                            Contracts, corporate correspondence, litigation filings, and court documents.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-blue-800 dark:text-blue-300" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-blue-800 dark:text-blue-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Technical -->
+                <div class="bento-card bg-emerald-50/80 hover:bg-emerald-100 dark:bg-cardDark dark:hover:bg-cardDarkHover border border-emerald-200/60 dark:border-borderDark p-8 flex flex-col justify-between h-[270px] cursor-pointer group" data-hover-bg="#D1FAE5" data-hover-dark="#064E3B">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center mb-4 text-white shadow-md">
+                            <i data-lucide="file-text" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-emerald-950 dark:group-hover:text-emerald-100 transition-colors" data-i18n="s2_h">
+                            Technical & Institutional
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 font-medium leading-relaxed" data-i18n="s2_p">
+                            Manuals, reports, and public policy documents adapted for targeted readers.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-300" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-800 dark:text-emerald-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Interpreting -->
+                <div class="bento-card bg-amber-50/80 hover:bg-amber-100 dark:bg-cardDark dark:hover:bg-cardDarkHover border border-amber-200/60 dark:border-borderDark p-8 flex flex-col justify-between h-[270px] cursor-pointer group" data-hover-bg="#FEF3C7" data-hover-dark="#78350F">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-600 flex items-center justify-center mb-4 text-white shadow-md">
+                            <i data-lucide="mic" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-amber-950 dark:group-hover:text-amber-100 transition-colors" data-i18n="s3_h">
+                            Judicial & Court Interpreting
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 font-medium leading-relaxed" data-i18n="s3_p">
+                            Court hearings, police interviews, business delegations, and trials.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-amber-800 dark:text-amber-300" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-amber-800 dark:text-amber-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Web Localization -->
+                <div class="bento-card bg-purple-50/80 hover:bg-purple-100 dark:bg-cardDark dark:hover:bg-cardDarkHover border border-purple-200/60 dark:border-borderDark p-8 flex flex-col justify-between h-[270px] cursor-pointer group" data-hover-bg="#EDE9FE" data-hover-dark="#4C1D95">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-600 flex items-center justify-center mb-4 text-white shadow-md">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-purple-950 dark:group-hover:text-purple-100 transition-colors" data-i18n="s4_h">
+                            Website & Content Localization
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 font-medium leading-relaxed" data-i18n="s4_p">
+                            Adapted for register, tone, plain language accessibility, and search nuances.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-purple-800 dark:text-purple-300" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-purple-800 dark:text-purple-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Official Certificates -->
+                <div class="bento-card bg-pink-50/80 hover:bg-pink-100 dark:bg-cardDark dark:hover:bg-cardDarkHover border border-pink-200/60 dark:border-borderDark p-8 flex flex-col justify-between h-[270px] cursor-pointer group" data-hover-bg="#FCE7F3" data-hover-dark="#831843">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-pink-600 flex items-center justify-center mb-4 text-white shadow-md">
+                            <i data-lucide="id-card" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-pink-950 dark:group-hover:text-pink-100 transition-colors" data-i18n="s5_h">
+                            Certificates & Personal Documents
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 font-medium leading-relaxed" data-i18n="s5_p">
+                            CVs, legal correspondence, academic records, and visa materials.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-pink-800 dark:text-pink-300" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-pink-800 dark:text-pink-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Retainer -->
+                <div class="bento-card rounded-3xl p-8 flex flex-col justify-between h-[270px] cursor-pointer group text-white shadow-lg" style="background: linear-gradient(135deg, var(--accent), #22B08D);">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4 text-white backdrop-blur-md">
+                            <i data-lucide="repeat" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black" data-i18n="s6_h">
+                            Monthly Retainer Support
+                        </h3>
+                        <p class="text-white/90 text-sm mt-2 font-medium leading-relaxed" data-i18n="s6_p">
+                            Fixed monthly volume — single point of contact with consistent terminology.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-white" data-i18n="cardCta">Learn More</span>
+                        <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RATES & INTERACTIVE COST CALCULATOR -->
+        <section id="rates" class="bg-slate-100 dark:bg-cardDark/40 border-y border-slate-200/80 dark:border-borderDark py-20 transition-colors">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-black uppercase tracking-widest accent-text" data-i18n="ratesEyebrow">Investment</span>
+                    <h2 class="text-4xl font-black text-slate-900 dark:text-white" data-i18n="ratesTitle">Rates & Instant Estimator</h2>
+                    <p class="text-slate-600 dark:text-slate-400 font-medium text-sm" data-i18n="ratesSub">Transparent starting points — every quote is confirmed after reviewing document scope.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Rates Cards -->
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="rate-card bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark rounded-2xl p-6 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white" data-i18n="r1_h">Per document</h3>
+                            <div class="text-2xl font-black mt-3 accent-text" data-i18n="r1_price">From $0.08</div>
+                            <div class="text-[11px] text-slate-400 mb-4" data-i18n="r1_unit">per word</div>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 border-t border-slate-100 dark:border-borderDark pt-3 font-medium">
+                                <li data-i18n="r1_l1">Certificates, CVs, filings</li>
+                                <li data-i18n="r1_l2">Turnaround: 24–48h</li>
+                            </ul>
+                        </div>
+
+                        <div class="rate-card bg-white dark:bg-cardDark border-2 rounded-2xl p-6 relative shadow-md" style="border-color: var(--accent);">
+                            <span class="absolute -top-3 left-6 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase" style="background: var(--accent);" data-i18n="r2_badge">Most Popular</span>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white" data-i18n="r2_h">Per project</h3>
+                            <div class="text-2xl font-black mt-3 accent-text" data-i18n="r2_price">Quote on Request</div>
+                            <div class="text-[11px] text-slate-400 mb-4" data-i18n="r2_unit">scoped after review</div>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 border-t border-slate-100 dark:border-borderDark pt-3 font-medium">
+                                <li data-i18n="r2_l1">Contracts, reports, litigation</li>
+                                <li data-i18n="r2_l2">Sample excerpt included</li>
+                            </ul>
+                        </div>
+
+                        <div class="rate-card bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark rounded-2xl p-6 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white" data-i18n="r3_h">Monthly Retainer</h3>
+                            <div class="text-2xl font-black mt-3 accent-text" data-i18n="r3_price">Custom</div>
+                            <div class="text-[11px] text-slate-400 mb-4" data-i18n="r3_unit">fixed monthly volume</div>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 border-t border-slate-100 dark:border-borderDark pt-3 font-medium">
+                                <li data-i18n="r3_l1">For ongoing institutional demand</li>
+                                <li data-i18n="r3_l2">Priority turnaround</li>
+                            </ul>
+                        </div>
+
+                        <div class="sm:col-span-3 text-xs text-slate-500 italic pt-2" data-i18n="ratesNote">
+                            * Judicial interpreting billed per day or half-day, quoted based on jurisdiction, subject matter, and duration.
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Cost Estimator Tool -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-cardDark dark:to-slate-900 text-white rounded-3xl p-8 border border-slate-700 dark:border-borderDark shadow-xl space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="calculator" class="w-5 h-5 accent-text"></i>
+                                <span data-i18n="calcTitle">Instant Cost Estimator</span>
+                            </h3>
+                            <span class="text-xs bg-white/10 accent-text font-bold px-3 py-1 rounded-full uppercase" data-i18n="calcBadge">Live Tool</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2" data-i18n="calcWordsLabel">Estimated Word Count</label>
+                                <input type="number" id="calcWords" value="1500" min="100" step="100" oninput="calculateEstimate()" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white font-bold focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2" data-i18n="calcServiceLabel">Service Category</label>
+                                <select id="calcRate" onchange="calculateEstimate()" class="w-full bg-slate-800/80 border border-slate-700 text-white rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer">
+                                    <option value="0.08">Standard Personal Document ($0.08 / word)</option>
+                                    <option value="0.10">Legal & Contractual ($0.10 / word)</option>
+                                    <option value="0.12">Technical & Institutional ($0.12 / word)</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block" data-i18n="calcTotalLabel">Estimated Ballpark</span>
+                                    <span class="text-3xl font-black accent-text" id="calcResult">$120.00</span>
+                                </div>
+                                <a href="#contact" data-i18n="calcBtn" class="px-5 py-3 text-slate-950 font-bold text-xs rounded-xl transition-all shadow-md hover:opacity-90" style="background: linear-gradient(90deg, var(--accent), #c98f2a);">
+                                    Request Official Quote
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & PROPOSAL REQUEST SECTION -->
+        <section id="contact" class="bg-slate-100 dark:bg-cardDark/50 border-t border-slate-200/80 dark:border-borderDark py-20">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-black uppercase tracking-widest accent-text" data-i18n="contactPre">Direct Contact</span>
+                    <h2 class="text-4xl font-black text-slate-900 dark:text-white" data-i18n="cH">Let's work together.</h2>
+                    <p class="text-slate-600 dark:text-slate-400 font-medium leading-relaxed text-sm" data-i18n="cS">
+                        Reach out directly to discuss official legal translation, court interpreting, or strategic institutional partnerships.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark flex items-center justify-center font-bold accent-text shadow-sm">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-bold block" data-i18n="contactEmailLabel">Email Address</span>
+                                <a href="mailto:gy.langservices@gmail.com" class="font-bold text-slate-800 dark:text-slate-200 hover:underline">gy.langservices@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark flex items-center justify-center font-bold accent-text shadow-sm">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-bold block" data-i18n="contactPhoneLabel">Phone Lines</span>
+                                <span class="font-bold text-slate-800 dark:text-slate-200">+212 620 334 376 &nbsp;/&nbsp; +34 658 742 449</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark flex items-center justify-center font-bold accent-text shadow-sm">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-bold block">LinkedIn Profile</span>
+                                <a href="https://linkedin.com/in/yassine-ghali" target="_blank" rel="noopener" class="font-bold text-slate-800 dark:text-slate-200 hover:underline">linkedin.com/in/yassine-ghali</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark flex items-center justify-center font-bold accent-text shadow-sm">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-bold block" data-i18n="contactHoursLabel">Working Hours</span>
+                                <span class="font-bold text-slate-800 dark:text-slate-200" data-i18n="availability">Monday – Saturday (08:00 – 19:00 CET)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="lg:col-span-7 bg-white dark:bg-cardDark border border-slate-200 dark:border-borderDark rounded-3xl p-8 shadow-xl">
+                    <form onsubmit="event.preventDefault(); alert('Thank you. Your proposal request has been received.');" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-2" data-i18n="lN">Name / Organization</label>
+                                <input type="text" required placeholder="Your name or law firm" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-borderDark rounded-xl px-4 py-3 text-slate-900 dark:text-white font-medium focus:outline-none focus:border-amber-400">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-2" data-i18n="lE">Email Address</label>
+                                <input type="email" required placeholder="name@domain.com" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-borderDark rounded-xl px-4 py-3 text-slate-900 dark:text-white font-medium focus:outline-none focus:border-amber-400">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-2" data-i18n="lM">Project & Document Details</label>
+                            <textarea rows="4" required placeholder="Specify document volume, target language pair, timeline, or court assignment dates..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-borderDark rounded-xl px-4 py-3 text-slate-900 dark:text-white font-medium focus:outline-none focus:border-amber-400"></textarea>
+                        </div>
+
+                        <button type="submit" data-i18n="bS" class="w-full py-4 text-slate-950 font-bold rounded-xl shadow-lg transition-all transform hover:scale-[1.01]" style="background: linear-gradient(90deg, var(--accent), #c98f2a);">
+                            Send Message & Request Proposal
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 dark:bg-darkBg text-slate-400 py-10 border-t border-slate-800 dark:border-borderDark transition-colors">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-3">
+            <div class="text-2xl font-black text-white">Tongue<span class="accent-text">Hub</span></div>
+            <p class="text-xs tracking-widest uppercase font-semibold text-emerald-400 dark:text-emeraldAccent" data-i18n="footTag">Legal & Institutional Language Services — Spain & Morocco</p>
+            <p class="text-xs text-slate-500" data-i18n="footCopy">© 2026 Yassine Ghali. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT ENGINE -->
+    <script>
+        // 1. Full Multilingual Dictionary Data
+        const translations = {
+            en: {
+                brandSub: "Global Voices",
+                navServices: "Services",
+                navRates: "Rates & Calculator",
+                navCredentials: "Credentials",
+                navContact: "Contact",
+                navQuote: "Get a Quote",
+                heroBadge: "8+ years of certified legal & judicial interpreting experience",
+                heroAnnotation: "100% human accuracy",
+                heroTitle: "Precision translation for documents that can't afford to be misread.",
+                heroDesc: "Legal, technical and institutional translation and interpreting between Arabic, Spanish, French and English — grounded in a legal degree and eight years as an official court and police interpreter.",
+                heroCta1: "Discuss a Project",
+                heroCta2: "View Pricing Rates",
+                trust1: "Years Court Experience",
+                trust2: "Working Languages",
+                trust3: "Human Precision",
+                themeLabel: "Accent Theme Picker",
+                themeSub: "Select visual accent",
+                paletteHeader: "Language Color Palettes",
+                paletteSub: "Click stripe to shift background",
+                marqueeTitle: "Specialized Expertise & Institutional Scope",
+                marquee: ["Legal Translation", "Judicial Interpreting", "Police & Law Enforcement", "Institutional Documents", "Cross-Border Investigations", "Web Localization", "Official Court Filings", "Contractual Agreements", "Arabic • Spanish • French • English"],
+                servEyebrow: "Professional Solutions",
+                servTitle: "Services",
+                servSub: "Per document, per project, or ongoing monthly institutional support.",
+                handwriting: "…and always human-checked",
+                s1_h: "Legal & Contractual Translation",
+                s1_p: "Contracts, corporate correspondence, litigation filings, and court documents.",
+                s2_h: "Technical & Institutional",
+                s2_p: "Manuals, reports, and public policy documents adapted for targeted readers.",
+                s3_h: "Judicial & Court Interpreting",
+                s3_p: "Court hearings, police interviews, business delegations, and trials.",
+                s4_h: "Website & Content Localization",
+                s4_p: "Adapted for register, tone, plain language accessibility, and search nuances.",
+                s5_h: "Certificates & Personal Documents",
+                s5_p: "CVs, legal correspondence, academic records, and visa materials.",
+                s6_h: "Monthly Retainer Support",
+                s6_p: "Fixed monthly volume — single point of contact with consistent terminology.",
+                cardCta: "Learn More",
+                ratesEyebrow: "Investment",
+                ratesTitle: "Rates & Instant Estimator",
+                ratesSub: "Transparent starting points — every quote is confirmed after reviewing document scope.",
+                r1_h: "Per document",
+                r1_price: "From $0.08",
+                r1_unit: "per word",
+                r1_l1: "Certificates, CVs, filings",
+                r1_l2: "Turnaround: 24–48h",
+                r2_badge: "Most Popular",
+                r2_h: "Per project",
+                r2_price: "Quote on Request",
+                r2_unit: "scoped after review",
+                r2_l1: "Contracts, reports, litigation",
+                r2_l2: "Sample excerpt included",
+                r3_h: "Monthly Retainer",
+                r3_price: "Custom",
+                r3_unit: "fixed monthly volume",
+                r3_l1: "For ongoing institutional demand",
+                r3_l2: "Priority turnaround",
+                ratesNote: "* Judicial interpreting billed per day or half-day, quoted based on jurisdiction, subject matter, and duration.",
+                calcTitle: "Instant Cost Estimator",
+                calcBadge: "Live Tool",
+                calcWordsLabel: "Estimated Word Count",
+                calcServiceLabel: "Service Category",
+                calcTotalLabel: "Estimated Ballpark",
+                calcBtn: "Request Official Quote",
+                credEyebrow: "Background",
+                credTitle: "Credentials & Experience",
+                cr1_meta: "2016 – 2024",
+                cr1_h: "Judicial & Police Interpreter — Moroccan National Police",
+                cr1_p: "Official court and police interpreter for law enforcement interviews, judicial hearings, and cross-border investigation proceedings across Arabic, English, Spanish, and French.",
+                cr2_meta: "2026 – Present",
+                cr2_h: "PhD Candidate — Universidad de Salamanca",
+                cr2_p: "Doctoral research on web localization, plain-language accessibility, and digital content strategy for public services.",
+                cr3_meta: "2024 – 2026",
+                cr3_h: "MA, English & Spanish for Specific Purposes — Universidad de Alicante",
+                cr3_p: "Postgraduate specialization with Master's dissertation focusing on LLM hallucinations and cross-lingual transfer.",
+                cr4_meta: "2017 – 2020",
+                cr4_h: "Bachelor of Law — Moulay Ismail University",
+                cr4_p: "Foundational degree in legal theory, public jurisprudence, and statutory principles in Morocco.",
+                toolsLabel: "CAT Tools & Computational NLP Stack",
+                contactPre: "Direct Contact",
+                cH: "Let's work together.",
+                cS: "Reach out directly to discuss official legal translation, court interpreting, or strategic institutional partnerships.",
+                contactEmailLabel: "Email Address",
+                contactPhoneLabel: "Phone Lines",
+                contactHoursLabel: "Working Hours",
+                availability: "Monday – Saturday (08:00 – 19:00 CET)",
+                lN: "Name / Organization",
+                lE: "Email Address",
+                lM: "Project & Document Details",
+                bS: "Send Message & Request Proposal",
+                footTag: "Legal & Institutional Language Services — Spain & Morocco",
+                footCopy: "© 2026 Yassine Ghali. All rights reserved."
+            },
+            es: {
+                brandSub: "Voces Globales",
+                navServices: "Servicios",
+                navRates: "Tarifas y Calculadora",
+                navCredentials: "Trayectoria",
+                navContact: "Contacto",
+                navQuote: "Solicitar Presupuesto",
+                heroBadge: "8+ años de experiencia certificada en interpretación judicial",
+                heroAnnotation: "100% precisión humana",
+                heroTitle: "Traducción de precisión para documentos que no admiten errores.",
+                heroDesc: "Traducción e interpretación jurídica, técnica e institucional entre árabe, español, francés e inglés — respaldada por formación jurídica y ocho años como intérprete judicial y policial oficial.",
+                heroCta1: "Consultar un Proyecto",
+                heroCta2: "Ver Tarifas",
+                trust1: "Años Experiencia Judicial",
+                trust2: "Idiomas de Trabajo",
+                trust3: "Precisión Humana",
+                themeLabel: "Color de Acento",
+                themeSub: "Seleccionar estilo",
+                paletteHeader: "Paletas de Idiomas",
+                paletteSub: "Clic en franja para cambiar fondo",
+                marqueeTitle: "Especialización y Ámbito Institucional",
+                marquee: ["Traducción Jurídica", "Interpretación Judicial", "Fuerzas de Seguridad", "Documentos Institucionales", "Investigación Transfronteriza", "Localización Web", "Actas Judiciales", "Acuerdos Contractuales", "Árabe • Español • Francés • Inglés"],
+                servEyebrow: "Soluciones Profesionales",
+                servTitle: "Servicios",
+                servSub: "Por documento, por proyecto o soporte institucional mensual.",
+                handwriting: "…y siempre revisado por humanos",
+                s1_h: "Traducción Jurídica y Contractual",
+                s1_p: "Contratos, correspondencia corporativa, documentos judiciales y actas oficiales.",
+                s2_h: "Técnica e Institucional",
+                s2_p: "Manuales, informes y documentos de políticas públicas adaptados al lector.",
+                s3_h: "Interpretación Judicial y de Tribunales",
+                s3_p: "Procedimientos judiciales, entrevistas policiales, delegaciones y juicios.",
+                s4_h: "Localización Web y de Contenidos",
+                s4_p: "Adaptada al tono, accesibilidad en lenguaje claro y matices de búsqueda.",
+                s5_h: "Certificados y Documentos Personales",
+                s5_p: "CV, correspondencia jurídica, expedientes académicos y visados.",
+                s6_h: "Soporte Mensual Continuo",
+                s6_p: "Volumen mensual fijo — un único interlocutor con terminología consistente.",
+                cardCta: "Más Información",
+                ratesEyebrow: "Inversión",
+                ratesTitle: "Tarifas y Calculadora Instantánea",
+                ratesSub: "Puntos de partida transparentes — se confirma presupuesto tras ver el documento.",
+                r1_h: "Por documento",
+                r1_price: "Desde $0.08",
+                r1_unit: "por palabra",
+                r1_l1: "Certificados, CVs, trámites",
+                r1_l2: "Plazo: 24–48h",
+                r2_badge: "Más Popular",
+                r2_h: "Por proyecto",
+                r2_price: "Presupuesto a Solicitud",
+                r2_unit: "definido tras revisión",
+                r2_l1: "Contratos, informes, litigios",
+                r2_l2: "Muestra de prueba incluida",
+                r3_h: "Retainer Mensual",
+                r3_price: "A medida",
+                r3_unit: "volumen mensual fijo",
+                r3_l1: "Para demanda institucional continua",
+                r3_l2: "Plazo prioritario",
+                ratesNote: "* Interpretación judicial facturada por día o media jornada, según jurisdicción y duración.",
+                calcTitle: "Calculadora de Costes",
+                calcBadge: "En Vivo",
+                calcWordsLabel: "Número de Palabras Estimado",
+                calcServiceLabel: "Categoría de Servicio",
+                calcTotalLabel: "Estimación Aproximada",
+                calcBtn: "Solicitar Presupuesto Oficial",
+                credEyebrow: "Trayectoria",
+                credTitle: "Formación y Experiencia",
+                cr1_meta: "2016 – 2024",
+                cr1_h: "Intérprete Judicial y Policial — Policía Nacional de Marruecos",
+                cr1_p: "Intérprete oficial para interrogatorios policiales, vistas judiciales y procedimientos transfronterizos en árabe, inglés, español y francés.",
+                cr2_meta: "2026 – Presente",
+                cr2_h: "Doctorando — Universidad de Salamanca",
+                cr2_p: "Investigación doctoral sobre localización web, accesibilidad en lenguaje claro y estrategia digital pública.",
+                cr3_meta: "2024 – 2026",
+                cr3_h: "Máster en Inglés y Español para Fines Específicos — Universidad de Alicante",
+                cr3_p: "Tesis de máster enfocada en alucinaciones de modelos de lenguaje (LLM) y transferencia multilingüe.",
+                cr4_meta: "2017 – 2020",
+                cr4_h: "Licenciatura en Derecho — Universidad Moulay Ismail",
+                cr4_p: "Grado en teoría jurídica, jurisprudencia pública y principios estatutarios en Marruecos.",
+                toolsLabel: "Herramientas CAT y Stack NLP",
+                contactPre: "Contacto Directo",
+                cH: "Trabajemos juntos.",
+                cS: "Póngase en contacto directamente para traducciones oficiales, interpretación o alianzas institucionales.",
+                contactEmailLabel: "Correo Electrónico",
+                contactPhoneLabel: "Líneas Telefónicas",
+                contactHoursLabel: "Horario de Atención",
+                availability: "Lunes – Sábado (08:00 – 19:00 CET)",
+                lN: "Nombre / Organización",
+                lE: "Correo Electrónico",
+                lM: "Detalles del Proyecto y Documentos",
+                bS: "Enviar Mensaje y Solicitud",
+                footTag: "Servicios Lingüísticos Jurídicos e Institucionales — España y Marruecos",
+                footCopy: "© 2026 Yassine Ghali. Todos los derechos reservados."
+            },
+            fr: {
+                brandSub: "Voix Mondiales",
+                navServices: "Services",
+                navRates: "Tarifs & Calculateur",
+                navCredentials: "Parcours",
+                navContact: "Contact",
+                navQuote: "Demander un Devis",
+                heroBadge: "8+ ans d'expérience certifiée en interprétation judiciaire",
+                heroAnnotation: "100% précision humaine",
+                heroTitle: "Une traduction de précision pour des documents qui ne tolèrent pas l'erreur.",
+                heroDesc: "Traduction et interprétation juridique, technique et institutionnelle entre l'arabe, l'espagnol, le français et l'anglais — appuyées sur une formation en droit et huit ans comme interprète judiciaire et policier.",
+                heroCta1: "Discuter d'un Projet",
+                heroCta2: "Voir les Tarifs",
+                trust1: "Ans d'Expérience Judiciaire",
+                trust2: "Langues de Travail",
+                trust3: "Précision Humaine",
+                themeLabel: "Thème Visuel",
+                themeSub: "Choisir la couleur",
+                paletteHeader: "Palettes de Langues",
+                paletteSub: "Cliquez pour changer l'arrière-plan",
+                marqueeTitle: "Expertise Spécialisée et Domaine Institutionnel",
+                marquee: ["Traduction Juridique", "Interprétation Judiciaire", "Services Policiers", "Documents Institutionnels", "Enquêtes Transfrontalières", "Localisation Web", "Actes Officiels", "Accords Contractuels", "Arabe • Espagnol • Français • Anglais"],
+                servEyebrow: "Solutions Professionnelles",
+                servTitle: "Services",
+                servSub: "Par document, par projet, ou accompagnement mensuel institutionnel.",
+                handwriting: "…toujours vérifié par un humain",
+                s1_h: "Traduction Juridique & Contractuelle",
+                s1_p: "Contrats, correspondance d'entreprise, pièces de litige et actes officiels.",
+                s2_h: "Technique & Institutionnel",
+                s2_p: "Manuels, rapports et documents de politiques publiques adaptés au lecteur.",
+                s3_h: "Interprétation Judiciaire & de Tribunal",
+                s3_p: "Procédures judiciaires, auditions policières, délégations et procès.",
+                s4_h: "Localisation Web & Contenu",
+                s4_p: "Adaptée au registre, à l'accessibilité en langage clair et aux nuances SEO.",
+                s5_h: "Certificats & Documents Personnels",
+                s5_p: "CV, correspondance juridique, relevés académiques et dossiers de visa.",
+                s6_h: "Forfait Mensuel Continuel",
+                s6_p: "Volume mensuel fixe — interlocuteur unique et terminologie cohérente.",
+                cardCta: "En Savoir Plus",
+                ratesEyebrow: "Investissement",
+                ratesTitle: "Tarifs & Estimateur",
+                ratesSub: "Points de départ transparents — devis confirmé après examen du document.",
+                r1_h: "Par document",
+                r1_price: "À partir de 0,08 $",
+                r1_unit: "au mot",
+                r1_l1: "Certificats, CV, actes",
+                r1_l2: "Délai : 24–48h",
+                r2_badge: "Le Plus Demandé",
+                r2_h: "Par projet",
+                r2_price: "Devis sur Demande",
+                r2_unit: "défini après examen",
+                r2_l1: "Contrats, rapports, contentieux",
+                r2_l2: "Extrait d'essai inclus",
+                r3_h: "Forfait Mensuel",
+                r3_price: "Sur mesure",
+                r3_unit: "volume mensuel fixe",
+                r3_l1: "Besoins institutionnels récurrents",
+                r3_l2: "Délai prioritaire",
+                ratesNote: "* Interprétation facturée à la journée ou demi-journée selon la juridiction et la durée.",
+                calcTitle: "Estimateur de Coût",
+                calcBadge: "En Direct",
+                calcWordsLabel: "Nombre de Mots Estimé",
+                calcServiceLabel: "Catégorie de Service",
+                calcTotalLabel: "Coût Estimé",
+                calcBtn: "Demander un Devis Officiel",
+                credEyebrow: "Parcours",
+                credTitle: "Diplômes & Expérience",
+                cr1_meta: "2016 – 2024",
+                cr1_h: "Interprète Judiciaire & Policier — Police Nationale marocaine",
+                cr1_p: "Interprète officiel pour interrogatoires de police, procédures judiciaires et enquêtes transfrontalières en arabe, anglais, espagnol et français.",
+                cr2_meta: "2026 – Présent",
+                cr2_h: "Doctorant — Universidad de Salamanca",
+                cr2_p: "Recherche doctorale sur la localisation web, l'accessibilité en langage clair et la stratégie numérique publique.",
+                cr3_meta: "2024 – 2026",
+                cr3_h: "Master, Anglais & Espagnol de Spécialité — Universidad de Alicante",
+                cr3_p: "Mémoire consacré aux hallucinations des modèles de langage (LLM) et au transfert interlingue.",
+                cr4_meta: "2017 – 2020",
+                cr4_h: "Licence en Droit — Université Moulay Ismail",
+                cr4_p: "Formation initiale en théorie du droit, jurisprudence publique et principes statutaires au Maroc.",
+                toolsLabel: "Outils TAO & Stack NLP",
+                contactPre: "Contact Direct",
+                cH: "Travaillons ensemble.",
+                cS: "Contactez-moi directement pour toute demande de traduction, interprétation ou partenariat.",
+                contactEmailLabel: "Adresse Email",
+                contactPhoneLabel: "Téléphone",
+                contactHoursLabel: "Heures d'Ouverture",
+                availability: "Lundi – Samedi (08h00 – 19h00 CET)",
+                lN: "Nom / Organisation",
+                lE: "Adresse Email",
+                lM: "Détails du Projet",
+                bS: "Envoyer le Message",
+                footTag: "Services Linguistiques Juridiques & Institutionnels — Espagne & Maroc",
+                footCopy: "© 2026 Yassine Ghali. Tous droits réservés."
+            },
+            ar: {
+                brandSub: "أصوات عالمية",
+                navServices: "الخدمات",
+                navRates: "الأسعار والحاسبة",
+                navCredentials: "المسار العلمي",
+                navContact: "تواصل",
+                navQuote: "طلب عرض سعر",
+                heroBadge: "أكثر من 8 سنوات خبرة موثقة في الترجمة الفورية القضائية",
+                heroAnnotation: "دقة بشرية 100%",
+                heroTitle: "ترجمة دقيقة للوثائق التي لا تحتمل الخطأ في فهمها.",
+                heroDesc: "ترجمة وترجمة فورية قانونية وتقنية ومؤسساتية بين العربية والإسبانية والفرنسية والإنجليزية — مبنية على تكوين قانوني وثماني سنوات كمترجم قضائي وشرطي رسمي.",
+                heroCta1: "ناقش مشروعك",
+                heroCta2: "عرض الأسعار",
+                trust1: "سنوات خبرة قضائية",
+                trust2: "لغات عمل",
+                trust3: "دقة بشرية",
+                themeLabel: "مُنسق الألوان",
+                themeSub: "اختر اللون الرئيسي",
+                paletteHeader: "لوحات اللغات",
+                paletteSub: "انقر لتغيير لون الخلفية",
+                marqueeTitle: "النطاق المؤسساتي والتخصصي",
+                marquee: ["الترجمة القانونية", "الترجمة القضائية الفورية", "الأمن والشرطة", "الوثائق المؤسساتية", "التحقيقات العابرة للحدود", "توطين المواقع", "المحاضر الرسمية", "العقود والاتفاقيات", "العربية • الإسبانية • الفرنسية • الإنجليزية"],
+                servEyebrow: "حلول احترافية",
+                servTitle: "الخدمات",
+                servSub: "حسب الوثيقة، أو المشروع، أو دعم مؤسساتي شهري مستمر.",
+                handwriting: "…ويُراجَع دائمًا بشريًا",
+                s1_h: "الترجمة القانونية والتعاقدية",
+                s1_p: "عقود، مراسلات الشركات، وثائق قضائية، ومحاضر رسمية.",
+                s2_h: "الترجمة التقنية والمؤسساتية",
+                s2_p: "أدلة، تقارير، وثائق السياسات العامة المكيّفة للقارئ.",
+                s3_h: "الترجمة القضائية وفي المحاكم",
+                s3_p: "جلسات المحاكم، استجوابات الشرطة، وفود الأعمال والمحاكمات.",
+                s4_h: "توطين المواقع والمحتوى",
+                s4_p: "مكيّف مع السجل واللغة الميسّرة وفروق محركات البحث.",
+                s5_h: "الشهادات والوثائق الشخصية",
+                s5_p: "سير ذاتية، مراسلات قانونية، سجلات أكاديمية وملفات التأشيرات.",
+                s6_h: "دعم شهري بعقد ثابت",
+                s6_p: "حجم شهري ثابت — جهة اتصال واحدة بمصطلحات متسقة.",
+                cardCta: "اعرف المزيد",
+                ratesEyebrow: "الاستثمار",
+                ratesTitle: "الأسعار وحاسبة التكلفة",
+                ratesSub: "أسعار شفافة — يُؤكَّد كل عرض سعر بعد الاطلاع على الوثيقة.",
+                r1_h: "حسب الوثيقة",
+                r1_price: "ابتداءً من 0.08$",
+                r1_unit: "للكلمة",
+                r1_l1: "شهادات، سير ذاتية، معاملات",
+                r1_l2: "مدة التسليم: 24–48 ساعة",
+                r2_badge: "الأكثر طلباً",
+                r2_h: "حسب المشروع",
+                r2_price: "عرض سعر عند الطلب",
+                r2_unit: "يُحدَّد بعد المراجعة",
+                r2_l1: "عقود، تقارير، قضايا",
+                r2_l2: "مقتطف تجريبي مجاني",
+                r3_h: "عقد شهري ثابت",
+                r3_price: "مخصص",
+                r3_unit: "حجم ثابت / شهريًا",
+                r3_l1: "للطلبات المؤسساتية المستمرة",
+                r3_l2: "أولوية في التسليم",
+                ratesNote: "* تُحتسب الترجمة القضائية باليوم أو نصف اليوم حسب الاختصاص القضائي والمدة.",
+                calcTitle: "حاسبة التكلفة الفورية",
+                calcBadge: "مباشر",
+                calcWordsLabel: "عدد الكلمات المقدر",
+                calcServiceLabel: "فئة الخدمة",
+                calcTotalLabel: "التكلفة التقديرية",
+                calcBtn: "طلب عرض سعر رسمي",
+                credEyebrow: "المسار العلمي",
+                credTitle: "المؤهلات والخبرة",
+                cr1_meta: "2016 – 2024",
+                cr1_h: "مترجم قضائي وشرطي — الأمن الوطني المغربي",
+                cr1_p: "مترجم رسمي لاستجوابات الشرطة والمحاكمات والتحقيقات العابرة للحدود بالعربية والإنجليزية والإسبانية والفرنسية.",
+                cr2_meta: "2026 – حاليًا",
+                cr2_h: "طالب دكتوراه — جامعة سلامنكا",
+                cr2_p: "بحث دكتوراه حول توطين المواقع وإتاحة المحتوى بلغة ميسّرة للخدمات العمومية.",
+                cr3_meta: "2024 – 2026",
+                cr3_h: "ماجستير في الإنجليزية والإسبانية للأغراض الخاصة — جامعة أليكانتي",
+                cr3_p: "تخصص عالي مع أطروحة حول هلوسات نماذج اللغة الكبيرة والتنقل بين اللغات.",
+                cr4_meta: "2017 – 2020",
+                cr4_h: "إجازة في الحقوق — جامعة مولاي إسماعيل",
+                cr4_p: "شهادة أساسية في النظرية القانونية والقانون العام والقوانين المغربية.",
+                toolsLabel: "أدوات الترجمة والبرمجيات اللغوية",
+                contactPre: "تواصل مباشر",
+                cH: "لنبدأ العمل معاً.",
+                cS: "تواصل معي مباشرة لمناقشة الترجمة الرسمية أو الترجمة الفورية أو الشراكات المؤسساتية.",
+                contactEmailLabel: "البريد الإلكتروني",
+                contactPhoneLabel: "أرقام الهاتف",
+                contactHoursLabel: "ساعات العمل",
+                availability: "الإثنين – السبت (08:00 – 19:00 بتوقيت وسط أوروبا)",
+                lN: "الاسم / المؤسسة",
+                lE: "البريد الإلكتروني",
+                lM: "تفاصيل الرسالة والمشروع",
+                bS: "إرسال الرسالة وطلب العرض",
+                footTag: "خدمات لغوية قانونية ومؤسساتية — إسبانيا والمغرب",
+                footCopy: "© 2026 ياسين غالي. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = 'en';
+
+        // 2. Language Switcher Engine
+        function setLang(lang) {
+            currentLang = lang;
+            const dict = translations[lang] || translations.en;
+            
+            document.documentElement.lang = lang;
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.removeAttribute('dir');
+                document.body.removeAttribute('dir');
+            }
+
+            // Update UI Elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    el.innerText = dict[key];
+                }
+            });
+
+            // Sync dropdown value
+            const switcher = document.getElementById('langSwitcher');
+            if (switcher) switcher.value = lang;
+
+            // Re-render Mosaic Headline & Scrolling Marquee
+            renderMosaicTitle(dict.heroTitle);
+            renderMarquee(dict.marquee);
+            
+            lucide.createIcons();
+        }
+
+        // 3. Interactive Mosaic Title Splitter & Hover Color Shift
+        const mosaicColors = ['#D6A93B', '#22B08D', '#3B82F6', '#EC4899', '#8B5CF6', '#F59E0B', '#0EA5E9'];
+
+        function renderMosaicTitle(text) {
+            const titleEl = document.getElementById('mosaicTitle');
+            if (!titleEl) return;
+            titleEl.innerHTML = '';
+
+            text.split(' ').forEach((word, wordIdx, wordArr) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.style.whiteSpace = 'nowrap';
+                wordSpan.style.display = 'inline-block';
+
+                word.split('').forEach(char => {
+                    const letterSpan = document.createElement('span');
+                    letterSpan.innerText = char;
+                    letterSpan.classList.add('mosaic-letter');
+
+                    const applyColorShift = () => {
+                        const randomColor = mosaicColors[Math.floor(Math.random() * mosaicColors.length)];
+                        letterSpan.style.color = randomColor;
+                    };
+
+                    letterSpan.addEventListener('mouseenter', applyColorShift);
+                    letterSpan.addEventListener('touchstart', applyColorShift, { passive: true });
+
+                    wordSpan.appendChild(letterSpan);
+                });
+
+                titleEl.appendChild(wordSpan);
+
+                if (wordIdx < wordArr.length - 1) {
+                    titleEl.appendChild(document.createTextNode(' '));
+                }
+            });
+        }
+
+        // 4. Marquee Generator
+        function renderMarquee(items) {
+            const track = document.getElementById('marqueeTrack');
+            if (!track || !items) return;
+
+            const fullList = [...items, ...items];
+            track.innerHTML = fullList.map(item => `
+                <span class="hover:text-slate-900 dark:hover:text-white transition-colors cursor-default">${item}</span>
+                <span class="accent-text">&bull;</span>
+            `).join('');
+        }
+
+        // 5. Dynamic Accent Swatch Color Switcher
+        function setAccent(colorHex, swatchEl) {
+            document.documentElement.style.setProperty('--accent', colorHex);
+            document.documentElement.style.setProperty('--accent-soft', colorHex + '25');
+            document.documentElement.style.setProperty('--accent-glow', colorHex + '50');
+
+            document.querySelectorAll('.theme-swatch').forEach(sw => sw.classList.remove('active'));
+            if (swatchEl) swatchEl.classList.add('active');
+        }
+
+        // 6. Interactive Site Background Shift on Stripe Click
+        document.querySelectorAll('.color-stripe').forEach(stripe => {
+            const shiftHeroBg = (e) => {
+                const isDark = document.documentElement.classList.contains('dark');
+                const targetBg = isDark 
+                    ? (e.target.getAttribute('data-dark') || '#0B0F17') 
+                    : (e.target.getAttribute('data-color') || '#FAFAFC');
+                
+                document.getElementById('pageBody').style.backgroundColor = targetBg;
+            };
+
+            stripe.addEventListener('click', shiftHeroBg);
+            stripe.addEventListener('touchstart', shiftHeroBg, { passive: true });
+        });
+
+        // 7. Dynamic Bento Card Background Hover Effects
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                const hoverBg = isDark ? card.getAttribute('data-hover-dark') : card.getAttribute('data-hover-bg');
+                if (hoverBg) card.style.backgroundColor = hoverBg;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.backgroundColor = '';
+            });
+        });
+
+        // 8. Dark / Light Mode Toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            document.getElementById('pageBody').style.backgroundColor = '';
+        }
+
+        // 8b. Simplified Accessible View Toggle
+        function toggleSimpleMode() {
+            const isActive = document.documentElement.classList.toggle('simple-mode');
+            const btn = document.getElementById('a11yToggleBtn');
+            if (btn) btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        }
+
+        // 9. Instant Cost Estimator Calculation
+        function calculateEstimate() {
+            const words = parseFloat(document.getElementById('calcWords').value) || 0;
+            const rate = parseFloat(document.getElementById('calcRate').value) || 0.08;
+            const total = (words * rate).toFixed(2);
+            document.getElementById('calcResult').innerText = '$' + total;
+        }
+
+        // Initialize Engine
+        document.addEventListener('DOMContentLoaded', () => {
+            setLang('en');
+            calculateEstimate();
+        });
+    </script>
+</body>
+</html>
